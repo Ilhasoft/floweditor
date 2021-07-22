@@ -9,6 +9,17 @@ import TembaSelect, { TembaSelectStyle } from 'temba/TembaSelect';
 import { SelectOption } from '../select/SelectElement';
 
 export const TIMEOUT_OPTIONS: SelectOption[] = [
+  { value: '5', name: i18n.t('forms.timeout_5 seconds', '5 seconds') },
+  { value: '10', name: i18n.t('forms.timeout_10 seconds', '10 seconds') },
+  { value: '15', name: i18n.t('forms.timeout_15 seconds', '15 seconds') },
+  { value: '20', name: i18n.t('forms.timeout_20 seconds', '20 seconds') },
+  { value: '25', name: i18n.t('forms.timeout_25 seconds', '25 seconds') },
+  { value: '30', name: i18n.t('forms.timeout_30 seconds', '30 seconds') },
+  { value: '35', name: i18n.t('forms.timeout_35 seconds', '35 seconds') },
+  { value: '40', name: i18n.t('forms.timeout_40 seconds', '40 seconds') },
+  { value: '45', name: i18n.t('forms.timeout_45 seconds', '45 seconds') },
+  { value: '50', name: i18n.t('forms.timeout_50 seconds', '50 seconds') },
+  { value: '55', name: i18n.t('forms.timeout_55 seconds', '55 seconds') },
   { value: '60', name: i18n.t('forms.timeout_1 minute', '1 minute') },
   { value: '120', name: i18n.t('forms.timeout_2 minutes', '2 minutes') },
   { value: '180', name: i18n.t('forms.timeout_3 minutes', '3 minutes') },
