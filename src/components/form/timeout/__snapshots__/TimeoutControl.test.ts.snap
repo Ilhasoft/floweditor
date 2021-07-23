@@ -137,12 +137,12 @@ exports[`TimeoutControl renders 1`] = `
 
 exports[`TimeoutControl updates: check 1`] = `
 Array [
-  300,
+  120,
 ]
 `;
 
 exports[`TimeoutControl updates: update 1`] = `
 Array [
-  300,
+  120,
 ]
 `;
