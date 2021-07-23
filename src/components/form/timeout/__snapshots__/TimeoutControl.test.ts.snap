@@ -108,8 +108,8 @@ exports[`TimeoutControl handles initial values 1`] = `
       style="small"
       value={
         Object {
-          "name": "1 minute",
-          "value": "60",
+          "name": "15 seconds",
+          "value": "15",
         }
       }
     />
