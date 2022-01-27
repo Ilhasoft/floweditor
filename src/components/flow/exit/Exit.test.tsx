@@ -14,7 +14,7 @@ const categories = [{ uuid: createUUID(), name: 'Red', exit_uuid: exit.uuid }];
 const exitProps: ExitProps = {
   exit,
   categories,
-  recentContacts: [],
+  recentMessages: [],
   node: { uuid: createUUID(), actions: [], exits: [] },
   showDragHelper: false,
   translating: false,
@@ -42,17 +42,9 @@ describe(ExitComp.name, () => {
       <>
         <ExitComp
           {...exitProps}
-          recentContacts={[
-            {
-              contact: { uuid: 'eaea6433-d423-41dd-94a9-075de20f322d', name: 'Jim' },
-              operand: 'Hi Mom!',
-              time: new Date().toUTCString()
-            },
-            {
-              contact: { uuid: 'f781f594-af8b-4493-b67c-2421bf2d4625', name: 'Bob' },
-              operand: 'Hi Dad!',
-              time: new Date().toUTCString()
-            }
+          recentMessages={[
+            { text: 'Hi Mom!', sent: new Date().toUTCString() },
+            { text: 'Hi Dad!', sent: new Date().toUTCString() }
           ]}
         />
       </>
@@ -61,29 +53,21 @@ describe(ExitComp.name, () => {
     // give our portal a chance to mount
     jest.runAllTimers();
 
-    // we have activity but we can't see our recent contacts yet
+    // we have activity but we can't see our recent messages yet
     getByText('1,000');
     expect(baseElement).toMatchSnapshot(baseElement);
   });
 
-  it('shows recent contacts on mouse over', () => {
+  it('shows recent messages on mouse over', () => {
     const { baseElement, getByText, queryAllByText } = render(
       <>
-        <div id="activity_recent_contacts"></div>
+        <div id="activity_recent_messages"></div>
 
         <ExitComp
           {...exitProps}
-          recentContacts={[
-            {
-              contact: { uuid: 'eaea6433-d423-41dd-94a9-075de20f322d', name: 'Jim' },
-              operand: 'Hi Mom!',
-              time: new Date().toUTCString()
-            },
-            {
-              contact: { uuid: 'f781f594-af8b-4493-b67c-2421bf2d4625', name: 'Bob' },
-              operand: 'Hi Dad!',
-              time: new Date().toUTCString()
-            }
+          recentMessages={[
+            { text: 'Hi Mom!', sent: new Date().toUTCString() },
+            { text: 'Hi Dad!', sent: new Date().toUTCString() }
           ]}
         />
       </>
@@ -92,14 +76,14 @@ describe(ExitComp.name, () => {
     // give our portal a chance to mount
     jest.runAllTimers();
 
-    // now we need to mouse over our activity to see recent contacts
+    // now we need to mouse over our activity to see recent messages
     const activity = getByText('1,000');
-    expect(queryAllByText('Recent Contacts').length).toEqual(0);
+    expect(queryAllByText('Recent Messages').length).toEqual(0);
 
     fireEvent.mouseEnter(activity);
     jest.runAllTimers();
 
-    expect(queryAllByText('Recent Contacts').length).toEqual(1);
+    expect(queryAllByText('Recent Messages').length).toEqual(1);
     getByText('Hi Mom!');
     getByText('Hi Dad!');
     expect(baseElement).toMatchSnapshot();

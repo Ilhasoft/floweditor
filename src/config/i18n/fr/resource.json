@@ -393,9 +393,9 @@
     "has_ward": "a quartier",
     "has_ward_category": "A quartier"
   },
-  "recent_contacts": {
-    "header": "Recent Contacts",
-    "header_empty": "No Recent Contacts"
+  "recent_messages": {
+    "header": "Recent Messages",
+    "header_empty": "No Recent Messages"
   },
   "removal_confirmation": "Retirer?",
   "revisions": {

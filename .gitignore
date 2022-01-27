@@ -13,6 +13,5 @@ report.html
 lambda-build
 lib
 build
-deploy
 fabric
 fabfile.py
