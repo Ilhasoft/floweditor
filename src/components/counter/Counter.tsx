@@ -50,7 +50,6 @@ export default class Counter extends React.Component<CounterProps> {
   private handleMouseEvent(event: React.MouseEvent<HTMLDivElement>, callback: () => void): void {
     event.preventDefault();
     event.stopPropagation();
-
     if (callback) {
       callback();
     }

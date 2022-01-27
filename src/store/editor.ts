@@ -1,4 +1,4 @@
-import { FlowPosition, Contact } from 'flowTypes';
+import { FlowPosition } from 'flowTypes';
 import ActionTypes, { UpdateEditorState } from 'store/actionTypes';
 import Constants from 'store/constants';
 import { Asset, RenderNode } from 'store/flowContext';
@@ -22,14 +22,13 @@ export interface CanvasPositions {
 export interface Activity {
   nodes: { [uuid: string]: number };
   segments: { [exitToNodeKey: string]: number };
-  recentContacts?: { [key: string]: RecentContact[] };
+  recentMessages?: { [key: string]: RecentMessage[] };
   is_starting?: boolean;
 }
 
-export interface RecentContact {
-  contact: Contact;
-  operand: string;
-  time: string;
+export interface RecentMessage {
+  sent: string;
+  text: string;
 }
 
 export interface Warning {

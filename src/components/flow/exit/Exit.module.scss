@@ -129,19 +129,15 @@
   }
 }
 
-.recent_contacts {
+.recent_messages {
   width: 200px;
-  margin-top: -15px;
+  margin-top: 12px;
   margin-left: -100px;
-  z-index: $z_recent_contacts;
+  z-index: $z_recent_messages;
 
-  background: transparent;
-
-  .container {
-    box-shadow: 0px 1px 3px 1px rgba(130, 130, 130, 0.2);
-    border-radius: $curvature;
-    background: $light_gray_2;
-  }
+  background: $light_gray_2;
+  border-radius: $curvature;
+  box-shadow: 0px 1px 3px 1px rgba(130, 130, 130, 0.2);
 
   &.no_recents {
     .title {
@@ -163,17 +159,14 @@
     text-align: center;
   }
 
-  .row {
+  .message {
     text-align: left;
     padding: 8px 10px;
-    border-top: 1px solid $light_gray;
-    
-    .operand {
-      padding-top: 3px;
-      font-size: 12px;
+    .text {
+      font-size: 13px;
     }
 
-    .time {
+    .sent {
       padding-top: 3px;
       font-size: 10px;
     }
