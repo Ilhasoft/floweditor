@@ -60,6 +60,7 @@ exports[`TicketRouterForm render should render 1`] = `
             >
               <temba-select
                 data-testid="temba_select_topic"
+                endpoint="/assets/topics.json"
                 errors="[]"
                 expressions=""
                 name="Topic"
@@ -227,6 +228,7 @@ exports[`TicketRouterForm updates should save changes 1`] = `
             >
               <temba-select
                 data-testid="temba_select_topic"
+                endpoint="/assets/topics.json"
                 errors="[]"
                 expressions=""
                 name="Topic"
