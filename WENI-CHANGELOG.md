@@ -1,3 +1,7 @@
+1.2.0-floweditor-1.17.1
+----------
+* Update floweditor with version 1.17.1
+
 1.1.2-floweditor-1.15.2
 ----------
 * Fix: Case removal and reorder on expression and field routers
