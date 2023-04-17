@@ -75,7 +75,6 @@ export default class FieldRouterForm extends React.Component<
     }
 
     const updated = mergeForm(this.state, updates);
-
     // update our form
     this.setState(updated);
     return updated.valid;

@@ -75,7 +75,6 @@ describe(FieldRouterForm.name, () => {
       ] as CaseProps[]);
 
       expect(instance.state).toMatchSnapshot();
-
       instance.handleSave();
       expect(props.onClose).toHaveBeenCalled();
       expect(props.updateRouter).toHaveBeenCalled();
