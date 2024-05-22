@@ -1,3 +1,7 @@
+1.3.0-floweditor-1.18.4
+----------
+* Update floweditor with version 1.18.4
+
 1.2.1-floweditor-1.18.2
 ----------
 * Update floweditor with version 1.18.2
