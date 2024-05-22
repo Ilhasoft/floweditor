@@ -57,6 +57,7 @@ import {
 import Localization from 'services/Localization';
 import { Asset, Assets, AssetType, RenderNode } from 'store/flowContext';
 import { assetListToMap } from 'store/helpers';
+import { ExclusionsCheckboxEntry } from 'store/nodeEditor';
 import { EMPTY_TEST_ASSETS } from 'test/utils';
 import { mock } from 'testUtils';
 import * as utils from 'utils';
@@ -181,19 +182,22 @@ export const createStartSessionAction = ({
     uuid: 'flow_uuid',
     name: 'Flow to Start'
   },
-  create_contact = false
+  create_contact = false,
+  exclusions = { in_a_flow: false }
 }: {
   uuid?: string;
   groups?: Group[];
   contacts?: Contact[];
   flow?: Flow;
   create_contact?: boolean;
+  exclusions?: ExclusionsCheckboxEntry;
 } = {}): StartSession => ({
   uuid,
   groups,
   contacts,
   flow,
   create_contact,
+  exclusions,
   type: Types.start_session
 });
 
@@ -635,7 +639,12 @@ export const createSchemeRouter = (schemes: Scheme[]): RenderNode => {
   return matchRouter;
 };
 
-export const createDialRouter = (phone: string, resultName: string): RenderNode => {
+export const createDialRouter = (
+  phone: string,
+  resultName: string,
+  dialLimit: number,
+  callLimit: number
+): RenderNode => {
   const matchRouter = createMatchRouter(
     ['Answered', 'No Answer', 'Busy', 'Failed'],
     DIAL_OPERAND,
@@ -647,7 +656,12 @@ export const createDialRouter = (phone: string, resultName: string): RenderNode 
   const router = matchRouter.node.router as SwitchRouter;
 
   // switch our wait to match a dial router
-  router.wait = { type: WaitTypes.dial, phone: phone };
+  router.wait = {
+    type: WaitTypes.dial,
+    phone: phone,
+    dial_limit_seconds: dialLimit,
+    call_limit_seconds: callLimit
+  };
 
   matchRouter.ui.type = Types.wait_for_dial;
 
